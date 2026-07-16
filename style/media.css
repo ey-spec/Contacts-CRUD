@@ -54,4 +54,13 @@
   .stat-value {
     font-size: var(--text-xl);
   }
+
+  .form-buttons{
+    flex-direction: column-reverse;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    width: 100%;
+  }
 }
