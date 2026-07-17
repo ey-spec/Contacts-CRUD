@@ -154,10 +154,18 @@ html {
   );
 }
 
+.avatar-orange {
+  background: linear-gradient(
+    to bottom right,
+    var(--color-amber-500),
+    var(--color-orange-600)
+  );
+}
+
 .avatar-purple {
   background: linear-gradient(
     to bottom right,
-    var(--color-violet-500),
+    var(--color-violet-700),
     var(--color-purple-600)
   );
 }

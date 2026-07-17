@@ -25,6 +25,7 @@ var avatarColors = [
   "avatar-teal",
   "avatar-purple",
   "avatar-rose",
+  "avatar-orange",
 ];
 
 var contacts = JSON.parse(localStorage.getItem("contact")) || [];
@@ -325,7 +326,7 @@ function updatedata() {
   renderemergency();
 }
 
-/* check update or delete */
+/* check update or add */
 
 function savecontact() {
   if (nameinput.value.trim() === "") {
