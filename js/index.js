@@ -109,7 +109,7 @@ function buildCardHtml(contact, i) {
   return `<div class="col">
     <div class="contact-card">
       <div class="card-top">
-        <div class="d-flex align-items-start gap-3 mb-3">
+        <div class="d-flex align-items-center gap-3 mb-3">
           <div class="avatar-wrap position-relative">
             ${avatarHtml}
             ${contact.favorite ? `<span class="badge-icon badge-star"><i class="fa-solid fa-star"></i></span>` : ""}
@@ -153,7 +153,7 @@ function buildCardHtml(contact, i) {
       <div class="d-flex align-items-center justify-content-between contact-actions">
         <div class="d-flex gap-2">
           <a href="tel:${contact.phone}" class="action-btn action-btn-green"><i class="fa-solid fa-phone"></i></a>
-          <a href="mailto:${contact.email}" class="action-btn action-btn-purple"><i class="fa-solid fa-envelope"></i></a>
+          ${contact.email ? `<a href="mailto:${contact.email}" class="action-btn action-btn-purple"><i class="fa-solid fa-envelope"></i></a>` : ""}
         </div>
         <div class="d-flex gap-2">
           <button class="action-btn ${contact.favorite ? "fav-button" : "action-btn-gray2"} action-btn-star" onclick="togglefavorite(${i})">
