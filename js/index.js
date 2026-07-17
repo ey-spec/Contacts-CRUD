@@ -56,6 +56,7 @@ function openForm() {
   modaltitle.textContent = "Add New Contact";
   photoCircle.innerHTML = `<i class="fa-solid fa-user"></i>`;
   removeBtn.classList.add("d-none");
+  photoRemoved = false;
 }
 
 function closeForm() {
@@ -99,8 +100,10 @@ function previewphoto() {
   }
 }
 
+var photoRemoved = false;
 function removephoto() {
   imginput.value = "";
+  photoRemoved = true;
 
   var isUpdate = currentIndex !== undefined && currentIndex !== null;
 
@@ -124,6 +127,7 @@ function clearform() {
   noteinput.value = "";
   fav.checked = false;
   emergency.checked = false;
+  photoRemoved = false;
 }
 
 /* build card */
@@ -285,8 +289,18 @@ function returndata(index) {
 function updatedata() {
   var imageName = imginput.files.length > 0 ? imginput.files[0].name : "";
   var oldContact = contacts[currentIndex];
+
+  var finalImage;
+  if (imageName) {
+    finalImage = "./assets/images/" + imageName;
+  } else if (photoRemoved) {
+    finalImage = "";
+  } else {
+    finalImage = oldContact.image;
+  }
+
   var contact = {
-    image: imageName ? "./assets/images/" + imageName : oldContact.image,
+    image: finalImage,
     initials: getInitials(nameinput.value),
     avatarColor: oldContact.avatarColor,
     name: nameinput.value,
