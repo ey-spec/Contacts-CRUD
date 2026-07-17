@@ -198,19 +198,28 @@
           <div class="d-flex flex-column align-items-center gap-1 mb-4">
             <div
               class="photo-circle d-flex align-items-center justify-content-center mb-2"
-            >
-              <i class="fa-solid fa-user"></i>
+            ></div>
+            <div class="d-flex gap-2">
+              <label class="change-photo-btn d-flex align-items-center gap-2">
+                <i class="fa-solid fa-camera"></i> Change Photo
+                <input
+                  type="file"
+                  id="imgInput"
+                  accept="image/*"
+                  class="photo-input"
+                  onchange="previewphoto()"
+                  hidden
+                />
+              </label>
+              <button
+                type="button"
+                id="removePhotoBtn"
+                class="change-photo-btn d-flex align-items-center gap-2 d-none remove-btn-bg"
+                onclick="removephoto()"
+              >
+                <i class="fa-solid fa-trash remove-btn-bg"></i> Remove Photo
+              </button>
             </div>
-            <label class="change-photo-btn d-flex align-items-center gap-2">
-              <i class="fa-solid fa-camera"></i> Change Photo
-              <input
-                type="file"
-                id="imgInput"
-                accept="image/*"
-                class="photo-input"
-                hidden
-              />
-            </label>
           </div>
 
           <div class="form-group mb-3">

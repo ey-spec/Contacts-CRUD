@@ -17,6 +17,8 @@ var pagesubtitle = document.querySelector(".page-subtitle");
 var favcard = document.getElementById("fav-card");
 var emergencycard = document.getElementById("emergency-card");
 var modaltitle = document.querySelector(".modal-title");
+var photoCircle = document.querySelector(".photo-circle");
+var removeBtn = document.getElementById("removePhotoBtn");
 
 var avatarColors = [
   "avatar-blue",
@@ -52,6 +54,8 @@ function openForm() {
   modaloverlay.classList.remove("d-none");
   currentIndex = undefined;
   modaltitle.textContent = "Add New Contact";
+  photoCircle.innerHTML = `<i class="fa-solid fa-user"></i>`;
+  removeBtn.classList.add("d-none");
 }
 
 function closeForm() {
@@ -85,6 +89,29 @@ function addcard() {
   updateStats();
   renderfavs();
   renderemergency();
+}
+
+function previewphoto() {
+  if (imginput.files.length > 0) {
+    var imageUrl = URL.createObjectURL(imginput.files[0]);
+    photoCircle.innerHTML = `<img src="${imageUrl}" alt="preview" class = "w-100 h-100 rounded-circle object-fit-cover" />`;
+    removeBtn.classList.remove("d-none");
+  }
+}
+
+function removephoto() {
+  imginput.value = "";
+
+  var isUpdate = currentIndex !== undefined && currentIndex !== null;
+
+  if (isUpdate) {
+    var contact = contacts[currentIndex];
+    photoCircle.innerHTML = contact.initials;
+  } else {
+    photoCircle.innerHTML = `<i class="fa-solid fa-user"></i>`;
+  }
+
+  removeBtn.classList.add("d-none");
 }
 
 function clearform() {
@@ -245,6 +272,14 @@ function returndata(index) {
   emergency.checked = contact.emergency;
 
   modaltitle.textContent = "Edit Contact";
+
+  if (contact.image) {
+    photoCircle.innerHTML = `<img src="${contact.image}" alt="preview" class = "w-100 h-100 rounded-circle object-fit-cover"/>`;
+    removeBtn.classList.remove("d-none");
+  } else {
+    photoCircle.innerHTML = contact.initials;
+    removeBtn.classList.add("d-none");
+  }
 }
 
 function updatedata() {
