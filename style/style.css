@@ -988,9 +988,22 @@ nav .container {
   transition: background-color 0.2s ease;
 }
 
-.remove-btn-bg {
-  background: var(--color-rose-50) !important;
-  color: var(--color-rose-500) !important;
+.remove-photo-btn {
+  border: none;
+  border-radius: var(--radius-lg);
+  padding-inline: calc(var(--spacing) * 4);
+  padding-block: calc(var(--spacing) * 2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+  cursor: pointer;
+  background: var(--color-rose-50);
+  color: var(--color-rose-500);
+  transition: background-color 0.2s ease;
+}
+
+.remove-photo-btn:hover {
+  background-color: var(--color-rose-100);
 }
 
 .change-photo-btn:hover {
