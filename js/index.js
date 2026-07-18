@@ -103,19 +103,39 @@ function previewphoto() {
 
 var photoRemoved = false;
 function removephoto() {
-  imginput.value = "";
-  photoRemoved = true;
-
   var isUpdate = currentIndex !== undefined && currentIndex !== null;
 
-  if (isUpdate) {
-    var contact = contacts[currentIndex];
-    photoCircle.innerHTML = contact.initials;
-  } else {
-    photoCircle.innerHTML = `<i class="fa-solid fa-user"></i>`;
-  }
+  Swal.fire({
+    title: "Remove Photo?",
+    text: "Are you sure you want to remove this photo?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, remove it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      imginput.value = "";
+      photoRemoved = true;
 
-  removeBtn.classList.add("d-none");
+      if (isUpdate) {
+        var contact = contacts[currentIndex];
+        photoCircle.innerHTML = contact.initials;
+      } else {
+        photoCircle.innerHTML = `<i class="fa-solid fa-user"></i>`;
+      }
+
+      removeBtn.classList.add("d-none");
+
+      Swal.fire({
+        title: "Removed!",
+        text: "The photo has been removed.",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  });
 }
 
 function clearform() {
