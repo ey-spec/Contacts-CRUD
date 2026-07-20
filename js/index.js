@@ -112,7 +112,7 @@ function removephoto() {
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, remove it!"
+    confirmButtonText: "Yes, remove it!",
   }).then((result) => {
     if (result.isConfirmed) {
       imginput.value = "";
@@ -132,7 +132,7 @@ function removephoto() {
         text: "The photo has been removed.",
         icon: "success",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       });
     }
   });
@@ -633,3 +633,20 @@ function getDuplicatePhoneContact(phone) {
   }
   return null;
 }
+
+/* keyboard events */
+
+document.addEventListener("keyup", function (e) {
+  if (modaloverlay.classList.contains("d-none")) {
+    return;
+  }
+
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") {
+    e.preventDefault();
+    savecontact();
+  }
+
+  if (e.key === "Escape") {
+    closeForm();
+  }
+});
