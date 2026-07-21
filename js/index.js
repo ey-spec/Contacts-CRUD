@@ -58,6 +58,7 @@ function openForm() {
   photoCircle.innerHTML = `<i class="fa-solid fa-user"></i>`;
   removeBtn.classList.add("d-none");
   photoRemoved = false;
+  clearform();
 }
 
 function closeForm() {
