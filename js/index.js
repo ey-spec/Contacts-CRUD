@@ -19,6 +19,9 @@ var emergencycard = document.getElementById("emergency-card");
 var modaltitle = document.querySelector(".modal-title");
 var photoCircle = document.querySelector(".photo-circle");
 var removeBtn = document.getElementById("removePhotoBtn");
+var errorname = document.querySelector(".name-error");
+var errorphone = document.querySelector(".phone-error");
+var erroremail = document.querySelector(".email-error");
 
 var avatarColors = [
   "avatar-blue",
@@ -150,6 +153,12 @@ function clearform() {
   fav.checked = false;
   emergency.checked = false;
   photoRemoved = false;
+  errorname.classList.add("d-none")
+  erroremail.classList.add("d-none")
+  errorphone.classList.add("d-none")
+  nameinput.classList.remove("input-error")
+  emailinput.classList.remove("input-error")
+  phoneinput.classList.remove("input-error")
 }
 
 /* build card */
@@ -603,10 +612,6 @@ function validateField(inputEl, errorEl, pattern, requiredIfEmpty) {
     return false;
   }
 }
-
-var errorname = document.querySelector(".name-error");
-var errorphone = document.querySelector(".phone-error");
-var erroremail = document.querySelector(".email-error");
 
 var namePattern = /^[A-Za-z\u0600-\u06FF ]{2,50}$/;
 var phonePattern = /^((\+?20)0?|0)(10|11|12|15)\d{8}$/;
