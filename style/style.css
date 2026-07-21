@@ -495,6 +495,7 @@ nav .container {
     0 1px 2px -1px var(--tw-shadow-color, #0000001a);
   transition: box-shadow 0.2s ease;
   overflow: hidden;
+  height: 100%;
 }
 
 .contact-card:hover {
@@ -618,7 +619,7 @@ nav .container {
   padding-bottom: calc(var(--spacing) * 0) !important;
   padding: calc(var(--spacing) * 4);
   border-radius: var(--radius-2xl);
-  min-height: 200px;
+  flex: 1;
 }
 
 .contact-actions {

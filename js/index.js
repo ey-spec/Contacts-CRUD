@@ -159,7 +159,7 @@ function buildCardHtml(contact, i) {
     : `<div class="avatar ${contact.avatarColor}">${contact.initials}</div>`;
 
   return `<div class="col">
-    <div class="contact-card">
+    <div class="contact-card d-flex flex-column">
       <div class="card-top">
         <div class="d-flex align-items-center gap-3 mb-3">
           <div class="avatar-wrap position-relative">
