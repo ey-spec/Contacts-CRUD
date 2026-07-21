@@ -607,8 +607,8 @@ var errorname = document.querySelector(".name-error");
 var errorphone = document.querySelector(".phone-error");
 var erroremail = document.querySelector(".email-error");
 
-var namePattern = /^[A-Za-z\s]{2,50}$/;
-var phonePattern = /^01[0125][0-9]{8}$/;
+var namePattern = /^[A-Za-z\u0600-\u06FF ]{2,50}$/;
+var phonePattern = /^((\+?20)0?|0)(10|11|12|15)\d{8}$/;
 var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function validatename() {
