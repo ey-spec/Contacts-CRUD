@@ -344,7 +344,6 @@ function updatedata() {
   };
   contacts.splice(currentIndex, 1, contact);
   localStorage.setItem("contact", JSON.stringify(contacts));
-
   rendercard();
   currentIndex = undefined;
   closeForm();
