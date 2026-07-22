@@ -97,8 +97,10 @@ function addcard() {
 }
 
 function previewphoto() {
+  var imageName = "";
   if (imginput.files.length > 0) {
-    var imageUrl = URL.createObjectURL(imginput.files[0]);
+    imageName = imginput.files[0].name;
+    var imageUrl = "./assets/images/" + imageName;
     photoCircle.innerHTML = `<img src="${imageUrl}" alt="preview" class = "w-100 h-100 rounded-circle object-fit-cover" />`;
     removeBtn.classList.remove("d-none");
   }
@@ -152,12 +154,12 @@ function clearform() {
   fav.checked = false;
   emergency.checked = false;
   photoRemoved = false;
-  errorname.classList.add("d-none")
-  erroremail.classList.add("d-none")
-  errorphone.classList.add("d-none")
-  nameinput.classList.remove("input-error")
-  emailinput.classList.remove("input-error")
-  phoneinput.classList.remove("input-error")
+  errorname.classList.add("d-none");
+  erroremail.classList.add("d-none");
+  errorphone.classList.add("d-none");
+  nameinput.classList.remove("input-error");
+  emailinput.classList.remove("input-error");
+  phoneinput.classList.remove("input-error");
 }
 
 /* build card */
