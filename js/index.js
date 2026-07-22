@@ -88,7 +88,6 @@ function addcard() {
   contacts.push(contact);
   rendercard();
   localStorage.setItem("contact", JSON.stringify(contacts));
-  clearform();
   currentIndex = undefined;
   closeForm();
   updateSubtitle();
@@ -347,7 +346,6 @@ function updatedata() {
   localStorage.setItem("contact", JSON.stringify(contacts));
 
   rendercard();
-  clearform();
   currentIndex = undefined;
   closeForm();
   updateSubtitle();
